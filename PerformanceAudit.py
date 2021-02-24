@@ -11,16 +11,7 @@ API_JSON_FILENAME = "APIData.json"
 def call_rest_api(searchJson, replaceString):
     # Extract out the API url from json
     searchApi = searchJson['api']
-
-    if replaceString is not None:
-        match = re.findall("___([^ _]+)___", searchApi)
-
-        for list in match:
-            print(list)
-            # replace the keyword with the value
-            old = "___" + list + "___"
-            searchApi = re.sub(old, urllib.parse.quote(replaceString), searchApi)
-
+    
 
     # Calling first API to get data information
     return requests.get("https://" + searchApi).json()
@@ -42,15 +33,15 @@ with open('/Users/alexheinle/Desktop/SPAudit/APIClient.json') as json_file:
     out = {}
     out['ApiInfo'] = []
 
-# Get all json needed for program
-    sportSearchJson = datain['locations'][0]
+    # Get API URL from json
+    API_URL = datain['locations'][0]
 
-# Getting json from response
-    allApiJson = call_rest_api(sportSearchJson, None)
-    print(sportSearchJson)
+    # Getting json from response
+    allApiJson = call_rest_api(API_URL, None)
+    print(API_URL)
 
     # Method call to write to file
-    write_data_to_file(API_JSON_FILENAME, None)
+    write_data_to_file(API_JSON_FILENAME, API_URL)
 
 
 
