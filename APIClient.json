@@ -1,7 +1,23 @@
 {
-   "locations":[
-      {
-         "api":"www.thesportsdb.com/api/v1/json/1/searchplayers.php?p=Ben%20Roethlisberger"
-      }
-   ]
+  "locations": [
+    {
+      "api": "newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4",
+      "parameters": [
+        {
+          "query": "step1.forecastrR",
+          "values":
+            "articles[*].description"
+        }
+      ]
+    },
+    {
+      "api": "api.nytimes.com/svc/search/v2/articlesearch.json?q=___Hometown___&api-key=QGx95r9zUg7UdmmYnGWqwGMVrZlfKhlk",
+      "parameters": [
+        {
+          "query": "step1.forecast",
+          "values": "response.docs[*].snippet"
+        }
+      ]
+    }
+  ]
 }
