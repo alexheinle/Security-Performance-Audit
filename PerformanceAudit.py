@@ -1,105 +1,55 @@
 import json
 import requests
-import jmespath
+#import jmespath
 import re
 #import urllib.parse
-try:
-    from urllib.parse import urlparse
-except ImportError:
-    import urllib as urlparse
-     #from urlparse import urlparse
-article_JSON_FILENAME = "articleData.json"
-#ARTICLE_FILENAME = "articleData.json"
-PLAYER_ATTRIBUTES = 'parameters[0].values'
-# print(type(PLAYER_ATTRIBUTES))
-
-
+#variables
+API_JSON_FILENAME = "API_URL.json"
+RESPONSE_FILENAME = "API_Response.json"
+STATUS_FILENAME = "Status_Code.json"
+# get database info
 def call_rest_api(searchJson, replaceString):
     # Extract out the API url from json
     searchApi = searchJson['api']
-    print(searchApi)
 
-    #if replaceString is not None:
-        #match = re.findall("___([^ _]+)___", searchApi)
-
-        #for list in match:
-            #print(list)
-            # replace the keyword with the value
-            #old = "___" + list + "___"
-            #searchApi = re.sub(old, urlparse.quote(replaceString), searchApi)
-                                #urllib.parse.quote
-
-    # Calling first API to get article information
     return requests.get("https://" + searchApi).json()
 
 
-def search_json(searchCriteria, json):
-    # print(type(searchCriteria))
-    # searchCriteria = {}
-    # json = {}
-    searchResult = jmespath.search(searchCriteria, json)
-    return searchResult
 
+# write database info to file
 def write_data_to_file(filename, filedata):
     with open(filename, 'w') as outfile:
         json.dump(filedata, outfile, indent=4, sort_keys=True)
 
 
-with open('APIData.json') as json_file:
-    datain = {}
+
+
+
+# opening config file and reading in API
+with open('/Users/alexheinle/Desktop/SPAudit/test/APIClient.json') as json_file:
     datain = json.load(json_file)
-    print(datain)
+    # dataout = {}
+    # dataout['main'] = []
+    # counter = 1
+    # out = {}
+    # out['ApiInfo'] = []
 
-    dataout = {}
-    dataout['main'] = []
-    counter = 1
+    # Get API URL from json
+    API_URL = datain['locations'][0]
 
-    out = {}
-    out['articleInfo'] = []
-    #print(out)
+    print(API_URL)
 
-    # Get all json needed for program
-    sportSearchJson = {}
-    sportSearchJson = datain['locations'][0]
-    #locationSearchJson = datain['locations'][1]
-    # print(sportSearchJson)
-    # THIS IS A DICTIONARY
+    write_data_to_file(API_JSON_FILENAME, API_URL)
 
 
-    # Getting json from response
-    allarticleJson = call_rest_api(sportSearchJson, None)
-    # print(allarticleJson)
-    # this is a dictionary
-    # aSourceDictionary = { 'abc' : [1,2,3] , 'ccd' : [4,5] }
-    # dict = {}
-    # for a in allarticleJson:
-    #     if a not in dict:
-    #         dict[a] = []
-    #         dict[a].extend(allarticleJson[a])
+    # gets API response in JSON FORMAT
+    response = 'http://newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
+    a = requests.get(response)
+    print(a.json())
+    write_data_to_file(RESPONSE_FILENAME, a.json())
 
-    # Getting article attributes from original JSON
-    articleAttributesQuery = search_json(PLAYER_ATTRIBUTES, sportSearchJson)
-    # print(type(articleAttributesQuery))
-    # these are the values we have stored in the config file
-    # THIS IS A LIST
-
-    # Search response json for attributes
-    articleData = search_json(articleAttributesQuery, allarticleJson)
-    # THIS IS A LIST
-    print(articleData)
-
-
-    # Getting json from response
-    #allLocationJson = call_rest_api(locationSearchJson, articleData[1])
-
-    # Getting article attributes
-    #locationAttributesQuery = search_json(PLAYER_ATTRIBUTES, locationSearchJson)
-
-
-    # Search response json for attributes
-    #locationArticleData = search_json(locationAttributesQuery, allLocationJson)
-    #print(locationArticleData)
-
-    write_data_to_file(article_JSON_FILENAME, articleData)
-
-    #write_data_to_file(ARTICLE_FILENAME, locationArticleData)
+    # gets the API status code
+    statusCode = 'http://newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
+    api_Status = requests.get(statusCode)
+    print(api_Status.status_code)
+    write_data_to_file(STATUS_FILENAME, api_Status.status_code)

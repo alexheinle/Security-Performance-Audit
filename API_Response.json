@@ -1,0 +1,32 @@
+{
+    "articles": [
+        {
+            "author": "", 
+            "content": "A health care worker draws a dose of Moderna's COVID-19 vaccine into a syringe for an immunization event in the parking lot of the L.A. Mission on Feb. 24.\r\nFrederic J. Brown/AFP via Getty Images\r\nPu\u2026 [+5259 chars]", 
+            "description": "People who have been sick with COVID-19 may need only one dose of the normally two-shot vaccines. If that became policy it could extend vaccine supplies, but logistical challenges are daunting.", 
+            "publishedAt": "2021-03-01T20:51:18Z", 
+            "source": {
+                "id": null, 
+                "name": "NPR"
+            }, 
+            "title": "Single Shot Of Coronavirus Vaccine After Illness Could Extend Supply : Shots - Health News - NPR", 
+            "url": "https://www.npr.org/sections/health-shots/2021/03/01/972563440/could-a-single-dose-of-covid-19-vaccine-after-illness-stretch-the-supply", 
+            "urlToImage": "https://media.npr.org/assets/img/2021/03/01/la_vax_gettyimages-1231364073_wide-17325efb66c03cbf0dfdf1ad2e8d64265a13ad3d.jpg?s=1400"
+        }, 
+        {
+            "author": "Zack Budryk", 
+            "content": "The U.S.\u00a0on Sunday reported an all-time high of 306 cases of coronavirus variants, with the majority concentrated in Florida, Michigan and Texas, USA Today reported.\r\nThe new cases included 104 new i\u2026 [+1954 chars]", 
+            "description": "The U.S.\u00a0on Sunday reported an all-time high of 306 cases of coronavirus variants, with the...", 
+            "publishedAt": "2021-03-01T15:36:17Z", 
+            "source": {
+                "id": "the-hill", 
+                "name": "The Hill"
+            }, 
+            "title": "US reports record number of variant coronavirus cases | TheHill - The Hill", 
+            "url": "https://thehill.com/policy/healthcare/540982-us-reports-record-number-of-variant-coronavirus-cases", 
+            "urlToImage": "https://thehill.com/sites/default/files/coronavirus_ny_012221getty_women-unemployment.jpg"
+        }
+    ], 
+    "status": "ok", 
+    "totalResults": 2
+}
