@@ -7,6 +7,7 @@ import re
 API_JSON_FILENAME = "API_URL.json"
 RESPONSE_FILENAME = "API_Response.json"
 STATUS_FILENAME = "Status_Code.json"
+TIME_FILENAME = "Elapsed_Time.json"
 # get database info
 def call_rest_api(searchJson, replaceString):
     # Extract out the API url from json
@@ -53,3 +54,9 @@ with open('/Users/alexheinle/Desktop/SPAudit/test/APIClient.json') as json_file:
     api_Status = requests.get(statusCode)
     print(api_Status.status_code)
     write_data_to_file(STATUS_FILENAME, api_Status.status_code)
+
+    # gets the elapsed time of the request to the arrival of response
+    time = 'http://newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
+    elapsedTime = requests.get(time)
+    print(elapsedTime.elapsed)
+    write_data_to_file(TIME_FILENAME, elapsedTime.elapsed)
