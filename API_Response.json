@@ -1,45 +1,19 @@
 {
     "articles": [
         {
-            "author": "Jason Breslow", 
-            "content": "CDC Director Rochelle Walensky said in an interview with NPR on Wednesday that the nation is fighting headwinds in the fight to end the pandemic from new variants of the virus and efforts to rollback\u2026 [+5546 chars]", 
-            "description": "With new cases teetering at about 60,000 to 70,000 per day, new hyper-transmissible variants and state rollbacks of coronavirus restrictions, the CDC chief urges Americans to remain vigilant.", 
-            "publishedAt": "2021-03-04T00:21:05Z", 
+            "author": "Peter Sullivan", 
+            "content": "The Pfizer vaccine was able to neutralize a coronavirus variant first identified in Brazil in a new lab study, a positive sign for the vaccine's effectiveness.\r\nNeutralization of the Brazilian varian\u2026 [+1818 chars]", 
+            "description": "The Pfizer vaccine was able to neutralize a coronavirus variant first identified in Brazil in a n...", 
+            "publishedAt": "2021-03-09T13:07:36Z", 
             "source": {
-                "id": null, 
-                "name": "NPR"
+                "id": "the-hill", 
+                "name": "The Hill"
             }, 
-            "title": "'Now Is Not The Time To Stop Wearing A Mask,' Says CDC Director Rochelle Walensky - NPR", 
-            "url": "https://www.npr.org/2021/03/03/973286247/now-is-not-the-time-to-stop-wearing-a-mask-says-cdc-director-rochelle-walensky", 
-            "urlToImage": "https://media.npr.org/assets/img/2021/03/03/ap20343705619537_wide-3df2be9820bf7ee481043a3f898eb5d28b6c0870.jpg?s=1400"
-        }, 
-        {
-            "author": "Brooke Singman", 
-            "content": "White House press secretary Jen Psaki said President Biden will wait to\u00a0address\u00a0a joint session of Congress until after Congress decides on the American Rescue Plan, his coronavirus relief package.\r\n\u2026 [+4319 chars]", 
-            "description": "White House press secretary Jen Psaki said President Biden will wait to\u00a0address\u00a0a joint session of Congress until after Congress decides on the American Rescue Plan, his coronavirus relief package.", 
-            "publishedAt": "2021-03-03T20:02:44Z", 
-            "source": {
-                "id": "fox-news", 
-                "name": "Fox News"
-            }, 
-            "title": "Biden won't deliver speech to Congress until after vote on coronavirus bill, Psaki says - Fox News", 
-            "url": "https://www.foxnews.com/politics/biden-no-speech-to-congress-until-coronavirus-bill-passes", 
-            "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2021/02/AP21036632364352.jpg"
-        }, 
-        {
-            "author": "Thomson Reuters Foundation", 
-            "content": "(Repeats with no changes to text)\r\nBy Julie Steenhuysen and Kate Kelland\r\nCHICAGO, March 3 (Reuters) - Chris Murray, a University of Washington disease expert whose projections on COVID-19 infections\u2026 [+8310 chars]", 
-            "description": "HEALTH-CORONAVIRUS/VARIANTS (INSIGHT, PIX):INSIGHT-\u201cWhen will it end?\u201d: How a changing virus is reshaping scientists\u2019 views on COVID-19", 
-            "publishedAt": "2021-03-03T16:14:00Z", 
-            "source": {
-                "id": null, 
-                "name": "Trust.org"
-            }, 
-            "title": "INSIGHT-\u201cWhen will it end?\u201d: How a changing virus is ... - Thomson Reuters Foundation", 
-            "url": "https://news.trust.org/item/20210303133322-kwdag", 
-            "urlToImage": "https://d8zcwdvc14g2e.cloudfront.net/contentAsset/image/760f2b27-0bcd-41f7-8e27-5ad86d9a541e/image/byInode/1/filter/Resize,Jpeg/jpeg_q/70/resize_w/1100"
+            "title": "Pfizer vaccine neutralizes Brazilian virus variant in new study | TheHill - The Hill", 
+            "url": "https://thehill.com/policy/healthcare/542258-pfizer-vaccine-neutralizes-brazilian-virus-variant-in-new-study", 
+            "urlToImage": "https://thehill.com/sites/default/files/pfizervaccine.jpg"
         }
     ], 
     "status": "ok", 
-    "totalResults": 3
+    "totalResults": 1
 }

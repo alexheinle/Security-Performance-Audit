@@ -42,7 +42,7 @@ def write_data_to_file(filename, filedata):
 
 
 # opening config file and reading in API
-with open('/Users/alexheinle/Desktop/SPAudit/test/APIClient.json') as json_file:
+with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Performance-Audit/APIClient.json') as json_file:
     datain = json.load(json_file)
     # Get API URL from json
     API_URL = datain['locations'][0]
@@ -56,11 +56,16 @@ with open('/Users/alexheinle/Desktop/SPAudit/test/APIClient.json') as json_file:
     print(a.json())
     write_data_to_file(RESPONSE_FILENAME, a.json())
 
+
+
+
+
     # gets the API status code
     statusCode = 'http://newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
     api_Status = requests.get(statusCode)
     print(api_Status.status_code)
     write_data_to_file(STATUS_FILENAME, api_Status.status_code)
+
 
 
 
