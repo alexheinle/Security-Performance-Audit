@@ -9,6 +9,7 @@ API_JSON_FILENAME = "API_URL.json"
 RESPONSE_FILENAME = "API_Response.json"
 STATUS_FILENAME = "Status_Code.json"
 TIME_FILENAME = "Elapsed_Time.json"
+HEADER_FILENAME = "Response_Headers.json"
 # get database info
 def call_rest_api(searchJson, replaceString):
     # Extract out the API url from json
@@ -51,7 +52,7 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
 
     # gets API response in JSON FORMAT
-    response = 'http://newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
+    response = 'http://127.0.0.1:5000/api/v1/resources/books/all'
     a = requests.get(response)
     print(a.json())
     write_data_to_file(RESPONSE_FILENAME, a.json())
@@ -80,3 +81,11 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     f = open("ElapsedTime.txt", "w")
     f.write(str(elapsedTime.elapsed))
     #write_data_to_file(TIME_FILENAME, elapsedTime.elapsed)
+
+
+    response_headers = 'http://127.0.0.1:5000/api/v1/resources/books/all'
+    response = requests.get(response_headers)
+    print(response.headers)
+    f = open("Response_Headers.json", "w")
+    f.write(str(response.headers))
+    #write_data_to_file(HEADER_FILENAME, response.headers)

@@ -1,19 +1,23 @@
-{
-    "articles": [
-        {
-            "author": "Peter Sullivan", 
-            "content": "The Pfizer vaccine was able to neutralize a coronavirus variant first identified in Brazil in a new lab study, a positive sign for the vaccine's effectiveness.\r\nNeutralization of the Brazilian varian\u2026 [+1818 chars]", 
-            "description": "The Pfizer vaccine was able to neutralize a coronavirus variant first identified in Brazil in a n...", 
-            "publishedAt": "2021-03-09T13:07:36Z", 
-            "source": {
-                "id": "the-hill", 
-                "name": "The Hill"
-            }, 
-            "title": "Pfizer vaccine neutralizes Brazilian virus variant in new study | TheHill - The Hill", 
-            "url": "https://thehill.com/policy/healthcare/542258-pfizer-vaccine-neutralizes-brazilian-virus-variant-in-new-study", 
-            "urlToImage": "https://thehill.com/sites/default/files/pfizervaccine.jpg"
-        }
-    ], 
-    "status": "ok", 
-    "totalResults": 1
-}
+[
+    {
+        "author": "Vernor Vinge", 
+        "first_sentence": "The coldsleep itself was dreamless.", 
+        "id": 0, 
+        "title": "alex", 
+        "year_published": "1992"
+    }, 
+    {
+        "author": "Ursula K. Le Guin", 
+        "first_sentence": "With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.", 
+        "id": 1, 
+        "published": "1973", 
+        "title": "bryanna"
+    }, 
+    {
+        "author": "Samuel R. Delany", 
+        "first_sentence": "to wound the autumnal city.", 
+        "id": 2, 
+        "published": "1975", 
+        "title": "maddy"
+    }
+]
