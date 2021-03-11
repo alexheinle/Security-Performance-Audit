@@ -3,6 +3,7 @@ import requests
 import datetime
 #import jmespath
 import re
+import streamlit as st
 #import urllib.parse
 #variables
 API_JSON_FILENAME = "API_URL.json"
@@ -16,6 +17,8 @@ def call_rest_api(searchJson, replaceString):
     searchApi = searchJson['api']
 
     return requests.get("https://" + searchApi).json()
+st.title('API Metric Results')
+st.header('')
 
 
 
@@ -50,14 +53,10 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     print(API_URL)
     write_data_to_file(API_JSON_FILENAME, API_URL)
 
-
-    # gets API response in JSON FORMAT
-    response = 'http://127.0.0.1:5000/api/v1/resources/books/all'
-    a = requests.get(response)
-    print(a.json())
-    write_data_to_file(RESPONSE_FILENAME, a.json())
-
-
+    # streamlit code for url
+    st.header('URL')
+    st.markdown('Below is the URL of the API')
+    st.success(API_URL)
 
 
 
@@ -67,6 +66,10 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     print(api_Status.status_code)
     write_data_to_file(STATUS_FILENAME, api_Status.status_code)
 
+    # streamlit code
+    st.header('STATUS CODE')
+    st.markdown('Below is the status code of the API')
+    st.success(api_Status.status_code)
 
 
 
@@ -82,10 +85,32 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     f.write(str(elapsedTime.elapsed))
     #write_data_to_file(TIME_FILENAME, elapsedTime.elapsed)
 
+    # streamlit code
+    st.header('ELAPSED TIME')
+    st.markdown('Below is the time it took from the call to the response of the API')
+    st.success(elapsedTime.elapsed)
+
 
     response_headers = 'http://127.0.0.1:5000/api/v1/resources/books/all'
     response = requests.get(response_headers)
     print(response.headers)
     f = open("Response_Headers.json", "w")
     f.write(str(response.headers))
-    #write_data_to_file(HEADER_FILENAME, response.headers)
+
+    # streamlit code
+    st.header('RESPONSE HEADERS')
+    st.markdown('Below is the response headers of the API')
+    st.success(response.headers)
+
+
+
+    # gets API response in JSON FORMAT
+    response = 'http://127.0.0.1:5000/api/v1/resources/books/all'
+    a = requests.get(response)
+    print(a.json())
+    write_data_to_file(RESPONSE_FILENAME, a.json())
+
+    # streamlit code
+    st.header('RESPONSE')
+    st.markdown('Below is the response of the API in json format')
+    st.write(a.json())
