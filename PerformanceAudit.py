@@ -4,6 +4,7 @@ import datetime
 #import jmespath
 import re
 import streamlit as st
+from bokeh.models.widgets import Div
 #import urllib.parse
 #variables
 API_JSON_FILENAME = "API_URL.json"
@@ -102,8 +103,6 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     st.markdown('Below is the response headers of the API')
     st.success(response.headers)
 
-
-
     # gets API response in JSON FORMAT
     response = 'http://127.0.0.1:5000/api/v1/resources/books/all'
     a = requests.get(response)
@@ -114,3 +113,15 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     st.header('RESPONSE')
     st.markdown('Below is the response of the API in json format')
     st.write(a.json())
+
+    #adding flask dashboard
+    st.header('REQUEST DASHBOARD')
+    st.markdown('Click the button below to see an API dashboard of metrics such as method distribution and request count by time.')
+    url = 'http://127.0.0.1:5000/flask-profiler/'
+
+if st.button('Request Count by Time'):
+    js = "window.open('http://127.0.0.1:5000/flask-profiler/')"  # New tab or window
+    js = "window.location.href = 'http://127.0.0.1:5000/flask-profiler/'"  # Current tab
+    html = '<img src onerror="{}">'.format(js)
+    div = Div(text=html)
+    st.bokeh_chart(div)
