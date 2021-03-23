@@ -1,25 +1,32 @@
 import json
 import requests
 import datetime
-#import jmespath
+import jmespath
 import re
 import streamlit as st
 from bokeh.models.widgets import Div
-#import urllib.parse
+import urllib.parse
 #variables
 API_JSON_FILENAME = "API_URL.json"
 RESPONSE_FILENAME = "API_Response.json"
 STATUS_FILENAME = "Status_Code.json"
 TIME_FILENAME = "Elapsed_Time.json"
 HEADER_FILENAME = "Response_Headers.json"
-# get database info
-def call_rest_api(searchJson, replaceString):
-    # Extract out the API url from json
-    searchApi = searchJson['api']
+JMESPATH_STATUSCODE = 'locations[0].api'
 
-    return requests.get("https://" + searchApi).json()
+
+# get database info
+# def call_rest_api(searchJson, replaceString):
+#     # Extract out the API url from json
+#     searchApi = search_json['api', None]
+#     print(searchApi)
+
+    #return requests.get("https://" + searchApi).json()
+#streamlit code
+st.image('/Users/alexheinle/Desktop/SPAudit_Logo.png')
 st.title('API Metric Results')
 st.header('')
+
 
 
 
@@ -27,6 +34,7 @@ st.header('')
 def write_data_to_file(filename, filedata):
     with open(filename, 'w') as outfile:
         json.dump(filedata, outfile, indent=4, sort_keys=True)
+
 
 
 # def write_time(timefile, timedata):
@@ -60,10 +68,12 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     st.success(API_URL)
 
 
-
     # gets the API status code
-    statusCode = 'http://newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
-    api_Status = requests.get(statusCode)
+    statusCode = '//newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
+    #statuscode = call_rest_api(JSON_FILE, None)
+    #statusCode = searchjson['api']
+    api_Status = requests.get('http:' + statusCode)
+    #statusCode = "http:" + statusCode
     print(api_Status.status_code)
     write_data_to_file(STATUS_FILENAME, api_Status.status_code)
 

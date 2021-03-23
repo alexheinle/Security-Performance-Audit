@@ -1,7 +1,7 @@
 {
    "locations":[
       {
-         "api":"http://127.0.0.1:5000/api/v1/resources/books/all"
+         "api":"//newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4"
       }
    ]
 }
