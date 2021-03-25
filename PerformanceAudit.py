@@ -61,7 +61,6 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     API_URL = datain['locations'][0]
     print(API_URL)
     write_data_to_file(API_JSON_FILENAME, API_URL)
-
     # streamlit code for url
     st.header('URL')
     st.markdown('Below is the URL of the API')
@@ -79,8 +78,16 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
     # streamlit code
     st.header('STATUS CODE')
-    st.markdown('Below is the status code of the API')
+    st.markdown('Below is the status code of the API. Status codes indicate whether the HTTP request has been successfully completed. The responses are grouped into 5 different categories.  Click the checkbox below to learn more.')
     st.success(api_Status.status_code)
+
+    if st.checkbox('Learn More About Status Codes'):
+        st.markdown('Below are the 5 groupings of status codes.')
+        st.image('/Users/alexheinle/Desktop/statuscode2.png')
+        st.write("[Click here to find the reason behind your status code response](https://httpstatuses.com/)")
+
+
+
 
 
 
@@ -98,8 +105,11 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
     # streamlit code
     st.header('ELAPSED TIME')
-    st.markdown('Below is the time it took from the call to the response of the API')
+    st.markdown('Below is the time it took from the start of the call to the response of the API.  The elapsed time is a good way to measure the performance of your API.')
     st.success(elapsedTime.elapsed)
+    if st.checkbox('Learn More About API Performance'):
+        st.write("[Click here to find the out how to improve your performance](https://nordicapis.com/making-fast-apis-lessons-learned-from-40-years-of-sql/)")
+        st.image('/Users/alexheinle/Desktop/responsetime2.png')
 
 
     response_headers = 'http://127.0.0.1:5000/api/v1/resources/books/all'
