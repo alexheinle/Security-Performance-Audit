@@ -69,10 +69,10 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
 
     # gets the API status code
-    statusCode = '//newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
+    statusCode = 'http://127.0.0.1:5000/api/v1/resources/books/all'
     #statuscode = call_rest_api(JSON_FILE, None)
     #statusCode = searchjson['api']
-    api_Status = requests.get('http:' + statusCode)
+    api_Status = requests.get(statusCode)
     #statusCode = "http:" + statusCode
     print(api_Status.status_code)
     write_data_to_file(STATUS_FILENAME, api_Status.status_code)
@@ -86,7 +86,7 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
 
     # gets the elapsed time of the request to the arrival of response
-    time = 'http://newsapi.org/v2/top-headlines?q=Coronavirus&country=us&apiKey=0b179f0aeb954161bdefa27816db8bb4'
+    time = 'http://127.0.0.1:5000/api/v1/resources/books/all'
     elapsedTime = requests.get(time)
     print(elapsedTime.elapsed)
     #elapsedTime.elapsed = datetime.timedelta(seconds=24*60*60)
@@ -127,7 +127,7 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     #adding flask dashboard
     st.header('REQUEST DASHBOARD')
     st.markdown('Click the button below to see an API dashboard of metrics such as method distribution and request count by time.')
-    url = 'http://127.0.0.1:5000/flask-profiler/'
+    url = 'http://127.0.0.1:5000/api/v1/resources/books/all/flask-profiler/'
 
 if st.button('Request Count by Time'):
     js = "window.open('http://127.0.0.1:5000/flask-profiler/')"  # New tab or window
