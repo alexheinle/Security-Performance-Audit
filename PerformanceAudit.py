@@ -137,7 +137,8 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     #adding flask dashboard
     st.header('REQUEST DASHBOARD')
     st.markdown('Click the button below to see an API dashboard of metrics such as method distribution and request count by time.')
-    url = 'http://127.0.0.1:5000/api/v1/resources/books/all/flask-profiler/'
+    #url = 'http://127.0.0.1:5000/api/v1/resources/books/all/flask-profiler/'
+    url = 'http://127.0.0.1:5000/api/v1/resources/books?author=Connie+Willis/flask-profiler'
 
 if st.button('Request Count by Time'):
     js = "window.open('http://127.0.0.1:5000/flask-profiler/')"  # New tab or window

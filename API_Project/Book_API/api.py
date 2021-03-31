@@ -26,6 +26,7 @@ app.config["flask_profiler"] = {
 
 
 
+
 # Create some test data for our catalog in the form of a list of dictionaries.
 books = [
     {'id': 0,
