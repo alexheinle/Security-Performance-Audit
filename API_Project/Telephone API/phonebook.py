@@ -1,19 +1,15 @@
 import flask
 from flask import request, jsonify
 import sqlite3
-import flask_profiler
+from flask_profiler import Profiler
+
+profiler = Profiler()
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-def dict_factory(cursor, row):
-    d = {}
-    for idx, col in enumerate(cursor.description):
-        d[col[0]] = row[idx]
-    return d
 
-
-
+# flask-profiler as follows:
 app.config["flask_profiler"] = {
     "enabled": app.config["DEBUG"],
     "storage": {
@@ -29,7 +25,16 @@ app.config["flask_profiler"] = {
 	]
 }
 
+profiler = Profiler()  # You can have this in another module
+profiler.init_app(app)
+# Or just Profiler(app)
 
+
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
 
 
 @app.route('/', methods=['GET'])
@@ -88,20 +93,9 @@ def api_filter():
     return jsonify(results)
 
 
-flask_profiler.init_app(app)
 
-@app.route('/doSomething', methods=['GET'])
-def doSomething():
-    return "flask-profiler will not measure this."
+# All the endpoints declared so far will be tracked by flask-profiler.
+#flask_profiler.init_app(app)
 
-
-@app.route('/doSomethingImportant', methods=['GET'])
-@flask_profiler.profile()
-def doSomethingImportant():
-    return "flask-profiler will measure this request."
-
-
-
-#app.run()
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000)
