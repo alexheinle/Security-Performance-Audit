@@ -23,14 +23,10 @@ app.config["flask_profiler"] = {
 	]
 }
 
-
-
-
-
 # Create some test data for our catalog in the form of a list of dictionaries.
 books = [
     {'id': 0,
-     'title': 'A Fire Upon the Deep',
+     'title': 'Alex',
      'author': 'Vernor Vinge',
      'first_sentence': 'The coldsleep itself was dreamless.',
      'year_published': '1992'},
@@ -57,6 +53,10 @@ def home():
 def api_all():
     return jsonify(books)
 
+@app.route('/api/v1/resources/books?id=0', methods=['GET'])
+def id0():
+    return jsonify(books)
+
 
 @app.route('/api/v1/resources/books', methods=['GET'])
 def api_id():
@@ -71,14 +71,6 @@ def api_id():
     # Create an empty list for our results
     results = []
 
-flask_profiler.init_app(app)
-
-
-@app.route('/api/v1/resources/books/all', methods=['GET'])
-@flask_profiler.profile()
-def doSomethingImportant():
-    return "flask-profiler will measure this request."
-
     # Loop through the data and match results that fit the requested ID.
     # IDs are unique, but other fields might return many results
     for book in books:
@@ -89,6 +81,23 @@ def doSomethingImportant():
     # Python dictionaries to the JSON format.
     return jsonify(results)
 
-#app.run()
+flask_profiler.init_app(app)
+
+@app.route('/api/v1/resources/books', methods=['GET'])
+def api_title():
+    if 'title' in requests.args:
+        title = string(request.args['title'])
+    else:
+        return "error."
+
+    results = []
+
+    for book in books:
+        if book['title'] == title:
+            results.append(book)
+    return jsonify(results)
+
+# All the endpoints declared so far will be tracked by flask-profiler.
+
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000)

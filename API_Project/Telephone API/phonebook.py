@@ -1,15 +1,11 @@
 import flask
 from flask import request, jsonify
 import sqlite3
-from flask_profiler import Profiler
-
-profiler = Profiler()
+import flask_profiler
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-
-# flask-profiler as follows:
 app.config["flask_profiler"] = {
     "enabled": app.config["DEBUG"],
     "storage": {
@@ -24,10 +20,6 @@ app.config["flask_profiler"] = {
 	    "^/static/.*"
 	]
 }
-
-profiler = Profiler()  # You can have this in another module
-profiler.init_app(app)
-# Or just Profiler(app)
 
 
 def dict_factory(cursor, row):
@@ -92,10 +84,7 @@ def api_filter():
 
     return jsonify(results)
 
-
-
-# All the endpoints declared so far will be tracked by flask-profiler.
-#flask_profiler.init_app(app)
+flask_profiler.init_app(app)
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000)
