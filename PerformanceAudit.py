@@ -93,7 +93,7 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
 
     # gets the elapsed time of the request to the arrival of response
-    time = 'http://vg07k.mocklab.io/v1/contacts'
+    time = 'http://127.0.0.1:5000/product/list/'
     elapsedTime = requests.get(time)
     print(elapsedTime.elapsed)
     #elapsedTime.elapsed = datetime.timedelta(seconds=24*60*60)
