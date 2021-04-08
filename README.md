@@ -15,6 +15,6 @@ To test SP Audit, run the command `pytest tests` to test using Pytest.
 
 # Results of the Interface
 
-![alt text](UIone.png)
+![alt text](UIone.jpg)
 
 ![alt text](image.jpg)
