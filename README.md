@@ -24,4 +24,4 @@ To test SP Audit, run the command `pytest tests` to test using Pytest.
 
 # Flask Dashboard
 
-![Flask](images/dashboard.png)
+![Flask](images/dashboard)
