@@ -8,13 +8,20 @@ First, make sure the following are installed locally on your machine.
 4. Streamlit
 5. jmespath
 
-Next, navigate to the main directory (Security&Performance Audit) and run `streamlit run PerformanceAudit.py`.
+Next, run the API that you would like to test in SP Audit.
+
+Finally, navigate to the main directory (Security&Performance Audit) and run `streamlit run PerformanceAudit.py`.
 
 # Testing the Tool
 To test SP Audit, run the command `pytest tests` to test using Pytest.
 
-# Results of the Interface
+# SP Audit Interface
 
-![alt text](UIone.jpg)
+![](images/UIone.jpg)
 
-![alt text](image.jpg)
+
+![](images/UItwo.png)
+
+# Flask Dashboard
+
+![](dashboard.jpg)
