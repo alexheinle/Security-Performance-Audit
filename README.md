@@ -20,4 +20,7 @@ To test SP Audit, run the command `pytest tests` to test using Pytest.
 ![](images/UIone.jpg)
 
 
-![](images/UItwo.jpg)
+![](images/UItwo.png)
+
+
+![](images/dashboard.png)
