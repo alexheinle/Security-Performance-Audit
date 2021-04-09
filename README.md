@@ -15,8 +15,9 @@ Finally, navigate to the main directory (Security&Performance Audit) and run `st
 # Testing the Tool
 To test SP Audit, run the command `pytest tests` to test using Pytest.
 
-# Results of the Interface
+# SP Audit Interface
 
 ![](images/UIone.jpg)
+
 
 ![](images/UItwo.jpg)
