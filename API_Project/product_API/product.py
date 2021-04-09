@@ -335,7 +335,7 @@ def updateProduct(id):
 
 @app.route('/products', methods=['GET'])
 def listProducts():
-    return "suppose I send you product list..."
+    return "List of Products"
 
 @app.route('/static/something/', methods=['GET'])
 def staticSomething():
