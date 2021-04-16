@@ -8,7 +8,7 @@ First, make sure the following are installed locally on your machine.
 4. Streamlit
 5. jmespath
 
-Next, run the API that you would like to test in SP Audit.
+Next, run the API that you would like to test in SP Audit.  For example, run '`python3 api.py`
 
 Finally, navigate to the main directory (Security&Performance Audit) and run `streamlit run PerformanceAudit.py`.
 
