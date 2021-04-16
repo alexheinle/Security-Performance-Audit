@@ -6,7 +6,8 @@ import re
 import streamlit as st
 from bokeh.models.widgets import Div
 import urllib.parse
-#variables
+
+#variables for json output
 API_JSON_FILENAME = "API_URL.json"
 RESPONSE_FILENAME = "API_Response.json"
 STATUS_FILENAME = "Status_Code.json"
@@ -15,14 +16,7 @@ HEADER_FILENAME = "Response_Headers.json"
 JMESPATH_STATUSCODE = 'locations[0].api'
 
 
-# get database info
-# def call_rest_api(searchJson, replaceString):
-#     # Extract out the API url from json
-#     searchApi = search_json['api', None]
-#     print(searchApi)
-
-    #return requests.get("https://" + searchApi).json()
-#streamlit code
+#streamlit code for logo and title
 st.image('/Users/alexheinle/Desktop/SPAudit_Logo.png')
 st.title('API Metric Results')
 st.header('')
@@ -34,23 +28,6 @@ st.header('')
 def write_data_to_file(filename, filedata):
     with open(filename, 'w') as outfile:
         json.dump(filedata, outfile, indent=4, sort_keys=True)
-
-
-
-# def write_time(timefile, timedata):
-#     with open(timefile, 'w') as outfile:
-#         file2 = open(timedata, outfile)
-
-# def write_time(timefile, timedata):
-#     with open(timefile, 'w') as f:
-#         elapsedTime.elapsed = f
-#         print(elapsedTime.elapsed)
-
-#f = open("demofile2.txt", "w")
-#f.write(elapsedTime.elapsed)
-
-
-
 
 
 
@@ -69,10 +46,7 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
     # gets the API status code
     statusCode = 'http://127.0.0.1:5000/product/list/'
-    #statuscode = call_rest_api(JSON_FILE, None)
-    #statusCode = searchjson['api']
     api_Status = requests.get(statusCode)
-    #statusCode = "http:" + statusCode
     print(api_Status.status_code)
     write_data_to_file(STATUS_FILENAME, api_Status.status_code)
 
@@ -81,6 +55,7 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     st.markdown('Below is the status code of the API. Status codes indicate whether the HTTP request has been successfully completed. The responses are grouped into 5 different categories.  Click the checkbox below to learn more.')
     st.success(api_Status.status_code)
 
+    #learning more about status codes
     if st.checkbox('Learn More About Status Codes'):
         st.markdown('Below are the 5 groupings of status codes.')
         st.image('/Users/alexheinle/Desktop/statuscode2.png')
@@ -88,20 +63,13 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
 
 
 
-
-
-
-
     # gets the elapsed time of the request to the arrival of response
     time = 'http://127.0.0.1:5000/product/list/'
     elapsedTime = requests.get(time)
     print(elapsedTime.elapsed)
-    #elapsedTime.elapsed = datetime.timedelta(seconds=24*60*60)
-    #timedelta_seconds = elapsedTime.elapsed.total_seconds()
-    #print(timedelta_seconds)
+
     f = open("ElapsedTime.txt", "w")
     f.write(str(elapsedTime.elapsed))
-    #write_data_to_file(TIME_FILENAME, elapsedTime.elapsed)
 
     # streamlit code
     st.header('ELAPSED TIME')
@@ -138,7 +106,6 @@ with open('/Users/alexheinle/Desktop/Security&Performance Audit/Security-Perform
     st.header('REQUEST DASHBOARD')
     st.markdown('Click the button below to see an API dashboard of metrics such as method distribution and request count by time.')
     url = 'http://127.0.0.1:5000/flask-profiler/'
-    #url = 'http://127.0.0.1:5000/api/v1/resources/books?author=Connie+Willis/flask-profiler'
 
 if st.button('Request Count by Time'):
     js = "window.open('http://127.0.0.1:5000/flask-profiler/')"  # New tab or window
